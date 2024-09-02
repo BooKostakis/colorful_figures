@@ -39,8 +39,10 @@ class LoginForm extends StatelessWidget {
               _PasswordInput(),
               const SizedBox(height: 8),
               _LoginButton(),
-              const SizedBox(height: 4),
+              const SizedBox(height: 8),
               _SignUpButton(),
+              const SizedBox(height: 8),
+              _GoogleLoginButton(),
             ],
           ),
         ),
@@ -134,22 +136,36 @@ class _LoginButton extends StatelessWidget {
 class _GoogleLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return ElevatedButton.icon(
-      key: const Key('loginForm_googleLogin_raisedButton'),
-      label: const Text(
-        'SIGN IN WITH GOOGLE',
-        style: TextStyle(color: Colors.white),
-      ),
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        backgroundColor: theme.colorScheme.secondary,
-      ),
-      icon: const Icon(FontAwesomeIcons.google, color: Colors.white),
-      onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
-    );
+    // final theme = Theme.of(context);
+    return ElevatedButton(
+        key: const Key('loginForm_googleLogin_raisedButton'),
+        style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(width: 2, color: Colors.white)),
+            backgroundColor: const Color.fromARGB(255, 104, 104, 104),
+            textStyle: TextStyle(color: Colors.white)),
+        onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              FontAwesomeIcons.google,
+              color: Theme.of(context).colorScheme.surface,
+              size: 25,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 10, 5, 5),
+              child: const Text(
+                textAlign: TextAlign.justify,
+                'ВОЙТИ С ПОМОЩЬЮАККАУНТА GOOGLE',
+                style: TextStyle(
+                    color: Colors.white, fontFamily: 'Block', fontSize: 18),
+              ),
+            ),
+          ],
+        ));
   }
 }
 
@@ -157,12 +173,22 @@ class _SignUpButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return TextButton(
+    return ElevatedButton(
       key: const Key('loginForm_createAccount_flatButton'),
+      style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: BorderSide(width: 2, color: Colors.white)),
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          textStyle: TextStyle(color: Colors.white)),
       onPressed: () => Navigator.of(context).push<void>(SignUpPage.route()),
-      child: Text(
-        'РЕГИСТРАЦИЯ',
-        style: TextStyle(color: theme.primaryColor),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(3, 6, 3, 3),
+        child: const Text(
+          'РЕГИСТРАЦИЯ',
+          style:
+              TextStyle(color: Colors.white, fontFamily: 'Block', fontSize: 20),
+        ),
       ),
     );
   }

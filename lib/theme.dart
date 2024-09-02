@@ -26,12 +26,19 @@ final theme = ThemeData(
   ),
   appBarTheme: const AppBarTheme(
     centerTitle: true,
+    foregroundColor: Colors.white,
     backgroundColor: Color.fromARGB(255, 0, 25, 50),
     elevation: 10,
+    titleTextStyle: TextStyle(
+        fontFamily: 'Block',
+        fontSize: 32,
+        color: Colors.white,
+        letterSpacing: 1.5),
   ),
   colorScheme: const ColorScheme.light(
     primary: Color.fromARGB(255, 0, 25, 50),
-    secondary: Color.fromARGB(255, 205, 227, 255),
+    secondary: Color.fromARGB(255, 0, 80, 150),
+    tertiary: Color.fromARGB(255, 0, 110, 184),
     surface: Color.fromARGB(255, 255, 255, 255),
   ),
   inputDecorationTheme: InputDecorationTheme(

@@ -27,12 +27,16 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
           ),
-          title: const Text('Sign Up')),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: BlocProvider<SignUpCubit>(
-          create: (_) => SignUpCubit(context.read<AuthenticationRepository>()),
-          child: const SignUpForm(),
+          title: const Text('Регистрация')),
+      body: Container(
+        color: Theme.of(context).colorScheme.primary,
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: BlocProvider<SignUpCubit>(
+            create: (_) =>
+                SignUpCubit(context.read<AuthenticationRepository>()),
+            child: const SignUpForm(),
+          ),
         ),
       ),
     );

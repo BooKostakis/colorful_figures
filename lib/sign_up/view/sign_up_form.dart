@@ -120,15 +120,16 @@ class _SignUpButton extends StatelessWidget {
     return ElevatedButton(
       key: const Key('signUpForm_continue_raisedButton'),
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        backgroundColor: Colors.orangeAccent,
-      ),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: BorderSide(width: 2, color: Colors.white)),
+          backgroundColor: Color.fromARGB(255, 100, 150, 0),
+          disabledBackgroundColor: Color.fromARGB(255, 0, 25, 50),
+          textStyle: TextStyle(color: Colors.white)),
       onPressed: isValid
           ? () => context.read<SignUpCubit>().signUpFormSubmitted()
           : null,
-      child: const Text('SIGN UP'),
+      child: const Text('РЕГИСТРАЦИЯ'),
     );
   }
 }

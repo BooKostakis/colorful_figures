@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: Color.fromARGB(255, 0, 25, 50),
+        color: Theme.of(context).colorScheme.primary,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: BlocProvider(
