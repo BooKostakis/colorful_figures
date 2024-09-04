@@ -25,6 +25,11 @@ class SignUpForm extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Image.asset(
+              'assets/images/logo.png',
+              height: 100,
+            ),
+            const SizedBox(height: 32),
             _EmailInput(),
             const SizedBox(height: 8),
             _PasswordInput(),
@@ -47,15 +52,16 @@ class _EmailInput extends StatelessWidget {
     );
 
     return SizedBox(
-      width: 200,
       child: TextField(
         key: const Key('signUpForm_emailInput_textField'),
         onChanged: (email) => context.read<SignUpCubit>().emailChanged(email),
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
+          labelStyle: TextStyle(
+              color: Colors.white, fontFamily: 'Block', letterSpacing: 1.5),
           labelText: 'email',
           helperText: '',
-          errorText: displayError != null ? 'Неверный email' : null,
+          errorText: displayError != null ? 'неверный email' : null,
         ),
       ),
     );
@@ -129,7 +135,14 @@ class _SignUpButton extends StatelessWidget {
       onPressed: isValid
           ? () => context.read<SignUpCubit>().signUpFormSubmitted()
           : null,
-      child: const Text('РЕГИСТРАЦИЯ'),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+        child: const Text(
+          'РЕГИСТРАЦИЯ',
+          style:
+              TextStyle(color: Colors.white, fontFamily: 'Block', fontSize: 24),
+        ),
+      ),
     );
   }
 }

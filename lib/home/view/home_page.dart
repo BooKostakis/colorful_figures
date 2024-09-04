@@ -27,15 +27,45 @@ class HomePage extends StatelessWidget {
       ),
       body: Align(
         alignment: const Alignment(0, -1 / 3),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Avatar(photo: user.photo),
-            const SizedBox(height: 4),
-            Text(user.email ?? '', style: textTheme.titleLarge),
-            const SizedBox(height: 4),
-            Text(user.name ?? '', style: textTheme.headlineSmall),
-          ],
+        child: Container(
+          width: double.infinity,
+          color: Theme.of(context).colorScheme.primary,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SizedBox(height: 20),
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Привет,\n',
+                        style: textTheme.titleLarge,
+                      ),
+                      TextSpan(
+                        text: user.email ?? '',
+                        style: textTheme.titleMedium,
+                      ),
+                      TextSpan(
+                        text: '\n\nВо сколько цветов\nмне покрасить фигуру?',
+                        style: textTheme.titleLarge,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                TextField(),
+                SizedBox(height: 20),
+                Text(
+                  textAlign: TextAlign.center,
+                  'Укажи число от 1 до 99',
+                  style: textTheme.titleLarge,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

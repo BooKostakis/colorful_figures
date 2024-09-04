@@ -31,7 +31,7 @@ class LoginForm extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/logo.png',
-                height: 120,
+                height: 100,
               ),
               const SizedBox(height: 32),
               _EmailInput(),
@@ -143,7 +143,7 @@ class _GoogleLoginButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
                 side: BorderSide(width: 2, color: Colors.white)),
-            backgroundColor: const Color.fromARGB(255, 104, 104, 104),
+            backgroundColor: const Color.fromARGB(255, 90, 95, 100),
             textStyle: TextStyle(color: Colors.white)),
         onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
         child: Row(
@@ -158,8 +158,7 @@ class _GoogleLoginButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 10, 5, 5),
               child: const Text(
-                textAlign: TextAlign.justify,
-                'ВОЙТИ С ПОМОЩЬЮАККАУНТА GOOGLE',
+                'ВОЙТИ С ПОМОЩЬЮ АККАУНТА GOOGLE',
                 style: TextStyle(
                     color: Colors.white, fontFamily: 'Block', fontSize: 18),
               ),

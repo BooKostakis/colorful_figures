@@ -11,8 +11,12 @@ final theme = ThemeData(
     // headlineLarge: TextStyle(color: Colors.amber),
     // headlineMedium: TextStyle(color: Colors.amber),
     // headlineSmall: TextStyle(color: Colors.amber),
-    // titleLarge: TextStyle(color: const Color.fromARGB(255, 24, 207, 39)),
-    // titleMedium: TextStyle(color: const Color.fromARGB(255, 228, 10, 199)),
+    titleLarge:
+        TextStyle(color: Colors.white, fontSize: 28, fontFamily: 'Block'),
+    titleMedium: TextStyle(
+        color: Color.fromARGB(255, 100, 150, 0),
+        fontSize: 28,
+        fontFamily: 'Block'),
     // titleSmall: TextStyle(color: const Color.fromARGB(255, 7, 255, 193)),
     bodyLarge: TextStyle(
         color: Color.fromARGB(255, 0, 190, 235),

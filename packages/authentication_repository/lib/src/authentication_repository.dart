@@ -13,7 +13,7 @@ import 'package:meta/meta.dart';
 class SignUpWithEmailAndPasswordFailure implements Exception {
   /// {@macro sign_up_with_email_and_password_failure}
   const SignUpWithEmailAndPasswordFailure([
-    this.message = 'An unknown exception occurred.',
+    this.message = 'Неизвестная ошибка',
   ]);
 
   /// Create an authentication message
@@ -23,23 +23,23 @@ class SignUpWithEmailAndPasswordFailure implements Exception {
     switch (code) {
       case 'invalid-email':
         return const SignUpWithEmailAndPasswordFailure(
-          'Email is not valid or badly formatted.',
+          'Адрес электронной почты недействителен или введен с ошибкой',
         );
       case 'user-disabled':
         return const SignUpWithEmailAndPasswordFailure(
-          'This user has been disabled. Please contact support for help.',
+          'Данная учетная запись заблокирована, пожалуйста, обратитесь в службу поддержки',
         );
       case 'email-already-in-use':
         return const SignUpWithEmailAndPasswordFailure(
-          'An account already exists for that email.',
+          'Учетная запись с таким email уже существует',
         );
       case 'operation-not-allowed':
         return const SignUpWithEmailAndPasswordFailure(
-          'Operation is not allowed.  Please contact support.',
+          'Операция запрещена. пожалуйста, обратитесь в службу поддержки',
         );
       case 'weak-password':
         return const SignUpWithEmailAndPasswordFailure(
-          'Please enter a stronger password.',
+          'Пожалуйста, введите более сложный пароль',
         );
       default:
         return const SignUpWithEmailAndPasswordFailure();
@@ -57,7 +57,7 @@ class SignUpWithEmailAndPasswordFailure implements Exception {
 class LogInWithEmailAndPasswordFailure implements Exception {
   /// {@macro log_in_with_email_and_password_failure}
   const LogInWithEmailAndPasswordFailure([
-    this.message = 'An unknown exception occurred.',
+    this.message = 'Неизвестная ошибка, попробуйте еще раз',
   ]);
 
   /// Create an authentication message
@@ -66,19 +66,19 @@ class LogInWithEmailAndPasswordFailure implements Exception {
     switch (code) {
       case 'invalid-email':
         return const LogInWithEmailAndPasswordFailure(
-          'Email is not valid or badly formatted.',
+          'Email не зарегистрирован или заполнен с ошибкой',
         );
       case 'user-disabled':
         return const LogInWithEmailAndPasswordFailure(
-          'This user has been disabled. Please contact support for help.',
+          'Пользователь заблокирован, обратитесь в поддержку',
         );
       case 'user-not-found':
         return const LogInWithEmailAndPasswordFailure(
-          'Email is not found, please create an account.',
+          'Email не зарегистрирован, пожалуйста, зарегистрируйтесь',
         );
       case 'wrong-password':
         return const LogInWithEmailAndPasswordFailure(
-          'Incorrect password, please try again.',
+          'Неверный пароль, попробуйте еще раз',
         );
       default:
         return const LogInWithEmailAndPasswordFailure();
@@ -96,7 +96,7 @@ class LogInWithEmailAndPasswordFailure implements Exception {
 class LogInWithGoogleFailure implements Exception {
   /// {@macro log_in_with_google_failure}
   const LogInWithGoogleFailure([
-    this.message = 'An unknown exception occurred.',
+    this.message = 'Неизвестная ошибка, попробуйте еще раз',
   ]);
 
   /// Create an authentication message
@@ -105,35 +105,35 @@ class LogInWithGoogleFailure implements Exception {
     switch (code) {
       case 'account-exists-with-different-credential':
         return const LogInWithGoogleFailure(
-          'Account exists with different credentials.',
+          'Учетная запись существует с другими учетными данными.',
         );
       case 'invalid-credential':
         return const LogInWithGoogleFailure(
-          'The credential received is malformed or has expired.',
+          'Полученные учетные данные неверны или срок их действия истек.',
         );
       case 'operation-not-allowed':
         return const LogInWithGoogleFailure(
-          'Operation is not allowed.  Please contact support.',
+          'Операция запрещена. Пожалуйста, обратитесь в службу поддержки.',
         );
       case 'user-disabled':
         return const LogInWithGoogleFailure(
-          'This user has been disabled. Please contact support for help.',
+          'Этот пользователь был отключен. Пожалуйста, обратитесь за помощью в службу поддержки.',
         );
       case 'user-not-found':
         return const LogInWithGoogleFailure(
-          'Email is not found, please create an account.',
+          'Адрес электронной почты не найден, пожалуйста, создайте учетную запись.',
         );
       case 'wrong-password':
         return const LogInWithGoogleFailure(
-          'Incorrect password, please try again.',
+          'Неверный пароль, пожалуйста, попоробуйте еще раз',
         );
       case 'invalid-verification-code':
         return const LogInWithGoogleFailure(
-          'The credential verification code received is invalid.',
+          'Полученный код подтверждения учетных данных является недействительным.',
         );
       case 'invalid-verification-id':
         return const LogInWithGoogleFailure(
-          'The credential verification ID received is invalid.',
+          'Полученный идентификатор для проверки учетных данных является недействительным.',
         );
       default:
         return const LogInWithGoogleFailure();

@@ -31,7 +31,7 @@ class SignUpPage extends StatelessWidget {
       body: Container(
         color: Theme.of(context).colorScheme.primary,
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: BlocProvider<SignUpCubit>(
             create: (_) =>
                 SignUpCubit(context.read<AuthenticationRepository>()),
