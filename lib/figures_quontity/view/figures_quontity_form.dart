@@ -1,20 +1,20 @@
 import 'package:authentication_repository/src/models/user.dart';
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
 import 'package:colorful_figures/colors_quontity/cubit/colors_qountity_cubit.dart';
-import 'package:colorful_figures/figures_quontity/figures_quontity.dart';
+import 'package:colorful_figures/figures_quontity/cubit/figures_qountity_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ColorsQuontityForm extends StatelessWidget {
+class FiguresQuantityForm extends StatelessWidget {
   final _quantityController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final user = context.select((AppBloc bloc) => bloc.state.user);
-    return BlocListener<ColorsQuantityCubit, ColorsQuantityState>(
+    return BlocListener<FiguresQuantityCubit, FiguresQuantityState>(
       listener: (context, state) {},
-      child: BlocBuilder<ColorsQuantityCubit, ColorsQuantityState>(
+      child: BlocBuilder<FiguresQuantityCubit, FiguresQuantityState>(
           builder: (context, state) {
         return SingleChildScrollView(
           child: Column(children: [
@@ -79,8 +79,6 @@ class GoButton extends StatelessWidget {
         final quantity = int.tryParse(_quantityController.text) ?? 0;
         BlocProvider.of<ColorsQuantityCubit>(context)
             .setColorsQuantity(quantity);
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => FiguresQuantityPage()));
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
@@ -152,7 +150,7 @@ class HelloText extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Привет,\n',
+            text: 'Отлично,\n',
             style: textTheme.titleLarge,
           ),
           TextSpan(
@@ -164,7 +162,7 @@ class HelloText extends StatelessWidget {
             style: TextStyle(fontSize: 10),
           ),
           TextSpan(
-            text: '\nВо сколько цветов\nмне покрасить фигуру?',
+            text: '\nТеперь давай определимся, сколько фигур мы нарисуем',
             style: textTheme.titleLarge,
           ),
         ],

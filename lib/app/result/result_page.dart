@@ -35,7 +35,7 @@ class _ResultPageState extends State<ResultPage> {
         child: Container(
           color: Theme.of(context).colorScheme.primary,
           child: Text(
-            'E<FYY',
+            'Результат',
             style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
