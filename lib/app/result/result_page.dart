@@ -1,17 +1,19 @@
-import 'package:authentication_repository/authentication_repository.dart';
+import 'package:colorful_figures/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:colorful_figures/login/login.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class ResultPage extends StatefulWidget {
+  const ResultPage({super.key});
 
-  static Page<void> page() => const MaterialPage<void>(child: LoginPage());
+  @override
+  State<ResultPage> createState() => _ResultPageState();
+}
 
+class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -29,13 +31,12 @@ class LoginPage extends StatelessWidget {
           style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
-      body: Container(
-        color: Theme.of(context).colorScheme.primary,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: BlocProvider(
-            create: (_) => LoginCubit(context.read<AuthenticationRepository>()),
-            child: const LoginForm(),
+      body: Center(
+        child: Container(
+          color: Theme.of(context).colorScheme.primary,
+          child: Text(
+            'E<FYY',
+            style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
       ),

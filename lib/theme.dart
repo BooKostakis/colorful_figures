@@ -6,7 +6,11 @@ final theme = ThemeData(
   ),
   textTheme: TextTheme(
     // displayLarge: TextStyle(color: Colors.amber),
-    // displayMedium: TextStyle(color: Colors.amber),
+    displayMedium: TextStyle(
+        fontFamily: 'Block',
+        fontSize: 32,
+        color: Colors.white,
+        letterSpacing: 1.5),
     // displaySmall: TextStyle(color: Colors.amber),
     // headlineLarge: TextStyle(color: Colors.amber),
     // headlineMedium: TextStyle(color: Colors.amber),
@@ -22,7 +26,8 @@ final theme = ThemeData(
         color: Color.fromARGB(255, 0, 190, 235),
         fontSize: 20,
         fontFamily: 'Block'), // текст в текстовом поле
-    // bodyMedium: TextStyle(color: const Color.fromARGB(255, 7, 255, 255)),
+    bodyMedium:
+        TextStyle(color: Colors.white, fontFamily: 'Block', fontSize: 24),
     // bodySmall: TextStyle(color: const Color.fromARGB(255, 109, 105, 91)),
     // labelLarge: TextStyle(color: const Color.fromARGB(255, 62, 0, 121)),
     // labelMedium: TextStyle(color: const Color.fromARGB(255, 156, 0, 0)),
