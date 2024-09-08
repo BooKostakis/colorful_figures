@@ -1,6 +1,7 @@
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
 import 'package:colorful_figures/colors_quontity/cubit/colors_qountity_cubit.dart';
 import 'package:colorful_figures/colors_quontity/view/colors_quontity_form.dart';
+import 'package:colorful_figures/figures_quontity/cubit/figures_qountity_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,8 +25,11 @@ class _ColorsQuontityPageState extends State<ColorsQuontityPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ColorsQuantityCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => FiguresQuantityCubit()),
+        BlocProvider(create: (context) => ColorsQuantityCubit()),
+      ],
       child: Scaffold(
         appBar: AppBar(
           flexibleSpace: Container(

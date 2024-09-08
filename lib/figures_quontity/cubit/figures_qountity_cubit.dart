@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 part 'figures_quontity_state.dart';
 
 class FiguresQuantityCubit extends Cubit<FiguresQuantityState> {
-  FiguresQuantityCubit() : super(FiguresQuantityState(colorsQuantity: 0));
+  FiguresQuantityCubit() : super(FiguresQuantityState(figuresQuantity: 1));
 
-  void setColorsQuantity(int quantity) {
-    emit(FiguresQuantityState(colorsQuantity: quantity));
+  void setFiguresQuantity(int quantity) {
+    emit(FiguresQuantityState(figuresQuantity: quantity));
   }
 }

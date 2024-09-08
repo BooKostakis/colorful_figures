@@ -1,5 +1,6 @@
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
 import 'package:colorful_figures/figures_quontity/cubit/figures_qountity_cubit.dart';
+import 'package:colorful_figures/figures_quontity/view/figures_quontity_form.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,11 +62,7 @@ class _FiguresQuantityPageState extends State<FiguresQuantityPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 200,
-                  height: 200,
-                  color: Colors.amber,
-                ),
+                FiguresQuantityForm(),
               ],
             ),
           ),

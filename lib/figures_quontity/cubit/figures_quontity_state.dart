@@ -1,7 +1,7 @@
 part of 'figures_qountity_cubit.dart';
 
 class FiguresQuantityState {
-  final int colorsQuantity;
+  final int figuresQuantity;
 
-  FiguresQuantityState({required this.colorsQuantity});
+  FiguresQuantityState({required this.figuresQuantity});
 }

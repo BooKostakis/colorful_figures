@@ -2,11 +2,12 @@ import 'package:authentication_repository/src/models/user.dart';
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
 import 'package:colorful_figures/colors_quontity/cubit/colors_qountity_cubit.dart';
 import 'package:colorful_figures/figures_quontity/cubit/figures_qountity_cubit.dart';
+import 'package:colorful_figures/result/view/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FiguresQuantityForm extends StatelessWidget {
-  final _quantityController = TextEditingController();
+  final _figuresQuantityController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +22,22 @@ class FiguresQuantityForm extends StatelessWidget {
             SizedBox(width: double.infinity),
             HelloText(textTheme: textTheme, user: user),
             SizedBox(height: 20),
-            ColorsQuantityField(quantityController: _quantityController),
+            ColorsQuantityField(
+                figuresQuantityController: _figuresQuantityController),
             SizedBox(height: 20),
             NumericalInterval(textTheme: textTheme),
             SizedBox(height: 10),
-            GoButton(quantityController: _quantityController),
+            GoButton(figuresQuantityController: _figuresQuantityController),
             const SizedBox(height: 20),
             Logo(),
             SizedBox(height: 10),
             Text(
-              'Количество цветов cейчас: ${state.colorsQuantity}',
+              'Количество фигур cейчас: ${state.figuresQuantity}',
               style: TextStyle(
                   color: const Color.fromARGB(255, 0, 180, 220),
                   fontFamily: 'Block',
                   fontSize: 18),
-            )
+            ),
           ]),
         );
       }),
@@ -60,10 +62,10 @@ class Logo extends StatelessWidget {
 class GoButton extends StatelessWidget {
   const GoButton({
     super.key,
-    required TextEditingController quantityController,
-  }) : _quantityController = quantityController;
+    required TextEditingController figuresQuantityController,
+  }) : _figuresQuantityController = figuresQuantityController;
 
-  final TextEditingController _quantityController;
+  final TextEditingController _figuresQuantityController;
 
   @override
   Widget build(BuildContext context) {
@@ -76,9 +78,12 @@ class GoButton extends StatelessWidget {
           disabledBackgroundColor: Color.fromARGB(255, 0, 25, 50),
           textStyle: TextStyle(color: Colors.white)),
       onPressed: () {
-        final quantity = int.tryParse(_quantityController.text) ?? 0;
-        BlocProvider.of<ColorsQuantityCubit>(context)
-            .setColorsQuantity(quantity);
+        final figuresQuantity =
+            int.tryParse(_figuresQuantityController.text) ?? 1;
+        BlocProvider.of<FiguresQuantityCubit>(context)
+            .setFiguresQuantity(figuresQuantity);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ResultPage()));
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
@@ -112,20 +117,20 @@ class NumericalInterval extends StatelessWidget {
 class ColorsQuantityField extends StatelessWidget {
   const ColorsQuantityField({
     super.key,
-    required TextEditingController quantityController,
-  }) : _quantityController = quantityController;
+    required TextEditingController figuresQuantityController,
+  }) : _figuresQuantityController = figuresQuantityController;
 
-  final TextEditingController _quantityController;
+  final TextEditingController _figuresQuantityController;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 180,
       child: TextField(
-        controller: _quantityController,
+        controller: _figuresQuantityController,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
-          labelText: 'Количество цветов',
+          labelText: 'Количество фигур',
           border: OutlineInputBorder(),
         ),
       ),
@@ -162,7 +167,7 @@ class HelloText extends StatelessWidget {
             style: TextStyle(fontSize: 10),
           ),
           TextSpan(
-            text: '\nТеперь давай определимся, сколько фигур мы нарисуем',
+            text: '\nТеперь давай определимся,\nсколько фигур мы нарисуем',
             style: textTheme.titleLarge,
           ),
         ],
