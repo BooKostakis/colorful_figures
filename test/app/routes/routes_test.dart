@@ -1,6 +1,6 @@
 // import 'package:colorful_figures/app/bloc/app_bloc.dart';
 // import 'package:colorful_figures/app/routes/routes.dart';
-// import 'package:colorful_figures/colors_quontity/view/colors_quontity_page.dart';
+// import 'package:colorful_figures/colors_Quantity/view/colors_Quantity_page.dart';
 // import 'package:colorful_figures/login/view/login_page.dart';
 // import 'package:flutter/material.dart';
 

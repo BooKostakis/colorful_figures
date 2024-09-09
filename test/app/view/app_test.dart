@@ -2,7 +2,7 @@
 // import 'package:bloc_test/bloc_test.dart';
 // import 'package:colorful_figures/app/bloc/app_bloc.dart';
 // import 'package:colorful_figures/app/view/app.dart';
-// import 'package:colorful_figures/colors_quontity/view/colors_quontity_page.dart';
+// import 'package:colorful_figures/colors_Quantity/view/colors_Quantity_page.dart';
 // import 'package:colorful_figures/login/view/login_page.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
