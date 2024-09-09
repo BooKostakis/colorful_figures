@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-part 'colors_quontity_state.dart';
+import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_state.dart';
 
 class ColorsQuantityCubit extends Cubit<ColorsQuantityState> {
   ColorsQuantityCubit() : super(ColorsQuantityState(colorsQuantity: 1));

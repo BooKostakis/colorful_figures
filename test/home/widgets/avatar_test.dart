@@ -1,7 +1,7 @@
 // // ignore_for_file: prefer_const_constructors
 // import 'dart:io';
 
-// import 'package:colorful_figures/colors_quontity/widgets/avatar.dart';
+// import 'package:colorful_figures/colors_Quantity/widgets/avatar.dart';
 // import 'package:flutter/material.dart';
 
 // import 'package:flutter_test/flutter_test.dart';

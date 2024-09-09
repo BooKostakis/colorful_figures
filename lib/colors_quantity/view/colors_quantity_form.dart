@@ -1,11 +1,13 @@
 import 'package:authentication_repository/src/models/user.dart';
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
-import 'package:colorful_figures/colors_quontity/cubit/colors_qountity_cubit.dart';
-import 'package:colorful_figures/figures_quontity/figures_quontity.dart';
+import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_cubit.dart';
+import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_state.dart';
+import 'package:colorful_figures/figures_quantity/view/figures_quantity_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ColorsQuontityForm extends StatelessWidget {
+class ColorsQuantityForm extends StatelessWidget {
   final _quantityController = TextEditingController();
 
   @override
@@ -20,9 +22,9 @@ class ColorsQuontityForm extends StatelessWidget {
           child: Column(children: [
             SizedBox(width: double.infinity),
             HelloText(textTheme: textTheme, user: user),
-            SizedBox(height: 20),
+            SizedBox(height: 25),
             ColorsQuantityField(quantityController: _quantityController),
-            SizedBox(height: 20),
+            SizedBox(height: 5),
             NumericalInterval(textTheme: textTheme),
             SizedBox(height: 10),
             GoButton(quantityController: _quantityController),
@@ -76,7 +78,7 @@ class GoButton extends StatelessWidget {
           disabledBackgroundColor: Color.fromARGB(255, 0, 25, 50),
           textStyle: TextStyle(color: Colors.white)),
       onPressed: () {
-        final quantity = int.tryParse(_quantityController.text) ?? 0;
+        final quantity = int.tryParse(_quantityController.text) ?? 1;
         BlocProvider.of<ColorsQuantityCubit>(context)
             .setColorsQuantity(quantity);
         Navigator.push(context,
@@ -124,6 +126,10 @@ class ColorsQuantityField extends StatelessWidget {
     return Container(
       width: 180,
       child: TextField(
+        maxLength: 2,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+        ],
         controller: _quantityController,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(

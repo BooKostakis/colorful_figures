@@ -1,6 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:colorful_figures/colors_quontity/cubit/colors_qountity_cubit.dart';
-import 'package:colorful_figures/figures_quontity/cubit/figures_qountity_cubit.dart';
+import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_cubit.dart';
+import 'package:colorful_figures/figures_quantity/cubit/figures_quantity_cubit.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,8 +21,8 @@ class App extends StatelessWidget {
       value: _authenticationRepository,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => FiguresQuantityCubit()),
-          BlocProvider(create: (context) => ColorsQuantityCubit()),
+          BlocProvider(create: (_) => FiguresQuantityCubit()),
+          BlocProvider(create: (_) => ColorsQuantityCubit()),
           BlocProvider(
             lazy: false,
             create: (_) => AppBloc(
