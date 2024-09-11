@@ -17,12 +17,14 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_star: ^1.2.0
   font_awesome_flutter: ^10.1.0
   form_inputs:
     path: packages/form_inputs
   formz: ^0.7.0
   google_fonts: ^6.2.1
   meta: ^1.7.0
+
 
 dev_dependencies:
   bloc_test: ^9.0.0
