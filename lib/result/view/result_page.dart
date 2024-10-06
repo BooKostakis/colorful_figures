@@ -1,12 +1,9 @@
-import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_cubit.dart';
-import 'package:colorful_figures/figures_quantity/cubit/figures_quantity_cubit.dart';
 import 'package:colorful_figures/result/view/circles.dart';
-import 'package:colorful_figures/result/view/rainbow_stack.dart';
 import 'package:colorful_figures/result/view/squares.dart';
 import 'package:colorful_figures/result/view/stars.dart';
 import 'package:colorful_figures/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key});
@@ -53,8 +50,8 @@ class _ResultPageState extends State<ResultPage> {
         height: 80,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.bottomCenter, // Начало градиента
-            end: Alignment.topCenter, // Конец градиента
+            begin: Alignment.bottomCenter, 
+            end: Alignment.topCenter, 
             colors: [
               Color.fromARGB(255, 0, 25, 50),
               Color.fromARGB(255, 0, 35, 80),

@@ -64,15 +64,15 @@ class RainbowStarStack extends StatelessWidget {
   final double maxHeigth;
   final double maxBorderRadius;
   final int colorsQuantity;
-  ClipPath? clipPath;
+  final ClipPath? clipPath;
 
-  RainbowStarStack({
-    super.key,
-    required this.maxWidth,
-    required this.maxHeigth,
-    required this.maxBorderRadius,
-    required this.colorsQuantity,
-  });
+  RainbowStarStack(
+      {super.key,
+      required this.maxWidth,
+      required this.maxHeigth,
+      required this.maxBorderRadius,
+      required this.colorsQuantity,
+      this.clipPath});
 
   @override
   Widget build(BuildContext context) {

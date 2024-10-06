@@ -1,7 +1,4 @@
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
-
-import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_cubit.dart';
-import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_state.dart';
 import 'package:colorful_figures/colors_quantity/view/colors_quantity_form.dart';
 
 import 'package:flutter/material.dart';
@@ -28,47 +25,42 @@ class _ColorsQuantityPageState extends State<ColorsQuantityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter, // Начало градиента
-              end: Alignment.topCenter, // Конец градиента
-              colors: [
-                Color.fromARGB(255, 0, 25, 50),
-                Color.fromARGB(255, 0, 35, 80),
-              ],
-            ),
-          ),
-        ),
-        title: Text(
-          'Colors Quantity',
-        ),
-        actions: <Widget>[
-          IconButton(
-            key: const Key('homePage_logout_iconButton'),
-            icon: const Icon(Icons.exit_to_app),
-            onPressed: () {
-              context.read<AppBloc>().add(const AppLogoutPressed());
-            },
-          ),
-        ],
-      ),
-      body: BlocBuilder<ColorsQuantityCubit, ColorsQuantityState>(
-        builder: (context, state) {
-          return Center(
-            child: Container(
-              color: Theme.of(context).colorScheme.primary,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ColorsQuantityForm(),
+        appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter, // Начало градиента
+                end: Alignment.topCenter, // Конец градиента
+                colors: [
+                  Color.fromARGB(255, 0, 25, 50),
+                  Color.fromARGB(255, 0, 35, 80),
                 ],
               ),
             ),
-          );
-        },
-      ),
-    );
+          ),
+          title: Text(
+            'Colors Quantity',
+          ),
+          actions: <Widget>[
+            IconButton(
+              key: const Key('homePage_logout_iconButton'),
+              icon: const Icon(Icons.exit_to_app),
+              onPressed: () {
+                context.read<AppBloc>().add(const AppLogoutPressed());
+              },
+            ),
+          ],
+        ),
+        body: Center(
+          child: Container(
+            color: Theme.of(context).colorScheme.primary,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ColorsQuantityForm(),
+              ],
+            ),
+          ),
+        ));
   }
 }

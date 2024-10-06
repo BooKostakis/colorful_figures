@@ -17,7 +17,7 @@ class RainbowStack extends StatelessWidget {
   final double maxHeigth;
   final double maxBorderRadius;
   final int colorsQuantity;
-  ClipPath? clipPath;
+  final ClipPath? clipPath;
 
   RainbowStack({
     super.key,
@@ -25,6 +25,7 @@ class RainbowStack extends StatelessWidget {
     required this.maxHeigth,
     required this.maxBorderRadius,
     required this.colorsQuantity,
+    this.clipPath,
   });
 
   @override

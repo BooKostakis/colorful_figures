@@ -1,6 +1,5 @@
 import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_cubit.dart';
 import 'package:colorful_figures/figures_quantity/cubit/figures_quantity_cubit.dart';
-import 'package:colorful_figures/result/view/rainbow_stack.dart';
 import 'package:colorful_figures/result/view/rainbow_stack_star.dart';
 import 'package:colorful_figures/theme.dart';
 import 'package:flutter/material.dart';
@@ -11,16 +10,14 @@ class Stars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final figuresQuantityCubit = BlocProvider.of<FiguresQuantityCubit>(context);
-    final colorsQuantityCubit = BlocProvider.of<ColorsQuantityCubit>(context);
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.bottomCenter, // Начало градиента
-                end: Alignment.topCenter, // Конец градиента
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
                 colors: [
                   Color.fromARGB(255, 0, 35, 80),
                   Color.fromARGB(255, 0, 25, 50),
@@ -35,8 +32,9 @@ class Stars extends StatelessWidget {
         ),
         body: ListView.builder(
           physics: const BouncingScrollPhysics(),
-          itemCount:
-              figuresQuantityCubit.state.figuresQuantity, // Количество виджетов
+          itemCount: BlocProvider.of<FiguresQuantityCubit>(context)
+              .state
+              .figuresQuantity, // Количество виджетов
           itemBuilder: (context, index) {
             return Container(
               color: theme.colorScheme.primary,
@@ -54,7 +52,9 @@ class Stars extends StatelessWidget {
                           maxHeigth: 320,
                           maxBorderRadius: 0,
                           colorsQuantity:
-                              colorsQuantityCubit.state.colorsQuantity,
+                              BlocProvider.of<ColorsQuantityCubit>(context)
+                                  .state
+                                  .colorsQuantity,
                         ),
                         const SizedBox(
                           height: 25,

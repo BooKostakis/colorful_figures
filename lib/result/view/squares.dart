@@ -10,8 +10,6 @@ class Squares extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final figuresQuantityCubit = BlocProvider.of<FiguresQuantityCubit>(context);
-    final colorsQuantityCubit = BlocProvider.of<ColorsQuantityCubit>(context);
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -36,8 +34,9 @@ class Squares extends StatelessWidget {
           color: theme.colorScheme.primary,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount: figuresQuantityCubit
-                .state.figuresQuantity, // Количество виджетов
+            itemCount: BlocProvider.of<FiguresQuantityCubit>(context)
+                .state
+                .figuresQuantity, // Количество виджетов
             itemBuilder: (context, index) {
               return Wrap(
                 children: List.generate(
@@ -53,7 +52,9 @@ class Squares extends StatelessWidget {
                           maxHeigth: 320,
                           maxBorderRadius: 0,
                           colorsQuantity:
-                              colorsQuantityCubit.state.colorsQuantity,
+                              BlocProvider.of<ColorsQuantityCubit>(context)
+                                  .state
+                                  .colorsQuantity,
                         ),
                         const SizedBox(
                           height: 25,
