@@ -28,7 +28,8 @@ final theme = ThemeData(
         fontFamily: 'Block'), // текст в текстовом поле
     bodyMedium:
         TextStyle(color: Colors.white, fontFamily: 'Block', fontSize: 24),
-    // bodySmall: TextStyle(color: const Color.fromARGB(255, 109, 105, 91)),
+    // bodySmall:
+    //     TextStyle(color: Colors.white, fontFamily: 'Block', fontSize: 24),
     // labelLarge: TextStyle(color: const Color.fromARGB(255, 62, 0, 121)),
     // labelMedium: TextStyle(color: const Color.fromARGB(255, 156, 0, 0)),
     // labelSmall: TextStyle(color: const Color.fromARGB(255, 248, 245, 236)),

@@ -1,4 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:colorful_figures/colors_quantity/cubit/colors_quantity_cubit.dart';
+import 'package:colorful_figures/figures_quantity/cubit/figures_quantity_cubit.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,11 +19,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: _authenticationRepository,
-      child: BlocProvider(
-        lazy: false,
-        create: (_) => AppBloc(
-          authenticationRepository: _authenticationRepository,
-        )..add(const AppUserSubscriptionRequested()),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => FiguresQuantityCubit()),
+          BlocProvider(create: (_) => ColorsQuantityCubit()),
+          BlocProvider(
+            lazy: false,
+            create: (_) => AppBloc(
+              authenticationRepository: _authenticationRepository,
+            )..add(const AppUserSubscriptionRequested()),
+          )
+        ],
         child: const AppView(),
       ),
     );

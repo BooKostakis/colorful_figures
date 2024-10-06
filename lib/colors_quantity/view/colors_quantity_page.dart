@@ -1,19 +1,19 @@
 import 'package:colorful_figures/app/bloc/app_bloc.dart';
-import 'package:colorful_figures/colors_quontity/cubit/colors_qountity_cubit.dart';
-import 'package:colorful_figures/colors_quontity/view/colors_quontity_form.dart';
+import 'package:colorful_figures/colors_quantity/view/colors_quantity_form.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ColorsQuontityPage extends StatefulWidget {
-  const ColorsQuontityPage({super.key});
+class ColorsQuantityPage extends StatefulWidget {
+  const ColorsQuantityPage({super.key});
 
-  static Page<void> page() => MaterialPage<void>(child: ColorsQuontityPage());
+  static Page<void> page() => MaterialPage<void>(child: ColorsQuantityPage());
 
   @override
-  State<ColorsQuontityPage> createState() => _ColorsQuontityPageState();
+  State<ColorsQuantityPage> createState() => _ColorsQuantityPageState();
 }
 
-class _ColorsQuontityPageState extends State<ColorsQuontityPage> {
+class _ColorsQuantityPageState extends State<ColorsQuantityPage> {
   final _quantityController = TextEditingController();
 
   @override
@@ -24,9 +24,7 @@ class _ColorsQuontityPageState extends State<ColorsQuontityPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ColorsQuantityCubit(),
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -53,23 +51,16 @@ class _ColorsQuontityPageState extends State<ColorsQuontityPage> {
             ),
           ],
         ),
-        // вот тут вопрос, почему стейт не видет и в форме нужно прописывать опять блокбилдер
-        body: BlocBuilder<ColorsQuantityCubit, ColorsQuantityState>(
-          builder: (context, state) {
-            return Center(
-              child: Container(
-                color: Theme.of(context).colorScheme.primary,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ColorsQuontityForm(),
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
+        body: Center(
+          child: Container(
+            color: Theme.of(context).colorScheme.primary,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ColorsQuantityForm(),
+              ],
+            ),
+          ),
+        ));
   }
 }

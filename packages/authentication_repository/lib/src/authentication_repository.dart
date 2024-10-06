@@ -80,6 +80,11 @@ class LogInWithEmailAndPasswordFailure implements Exception {
         return const LogInWithEmailAndPasswordFailure(
           'Неверный пароль, попробуйте еще раз',
         );
+      case 'invalid-credential':
+        return const LogInWithEmailAndPasswordFailure(
+          'Неверный логин или пароль, попробуйте еще раз',
+        );
+
       default:
         return const LogInWithEmailAndPasswordFailure();
     }
